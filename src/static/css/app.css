@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .container {
+    background: #fff;
+    width: 380px;
+    max-width: 90vw;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slider {
+    display: flex;
+    width: 200%;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  form {
+    width: 50%;
+    padding: 40px 30px;
+    background: #fff;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #667eea;
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    background: #667eea;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background: #5a6bd8;
+  }
+
+  /* Toggle fuera del slider */
+  .toggle-btn {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #eee;
+    user-select: none;
+  }
+
+  .toggle-btn span {
+    color: #a8b1ff;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+  }
