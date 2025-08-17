@@ -1,6 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
+
+def get_db():
+    pass
 
 @app.route("/", methods=["POST"])
 def home():
@@ -8,17 +11,27 @@ def home():
 
 @app.route("/login", methods=["POST"])
 def login():
+    email = request.form["email"]
+    password = request.form["password"]
 
-    # Proceso de verificación de usuario
+    conn = get_db()
+    user = conn.execute("SELECT * FROM users WHERE email = ? AND password = ?",
+                        (email, password)).fetchone()
+    conn.close()
 
-    return render_template("welcome.html")
+    if user:
+        return render_template("home.html", nombre=user["nombre"])
+    else:
+        return redirect(url_for("home"))
 
 @app.route("/register", methods=["POST"])
 def register():
 
-    # Recuperar datos y almacenar en base
+    name = request.form["user"]
+    email = request.form["email"]
+    password = request.form["password"]
 
-    return render_template("register.html")
+    return redirect(url_for(home))
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
