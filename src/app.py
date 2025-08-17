@@ -35,7 +35,7 @@ def login():
     conn.close()
 
     if user:
-        return render_template("home.html", nombre=user[1])
+        return render_template("home.html", nombre_usuario=user[1])
     else:
         flash("Usuario o contraseña incorrectos")
         return redirect(url_for("home"))
